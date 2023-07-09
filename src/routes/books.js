@@ -15,10 +15,7 @@ const Book = container.get(BookRepository);
 router.get(ENDPOINTS.BOOK_DOWNLOAD, async (req, res) => {
     const {id} = req.params;
     try {
-        // const book = await Book.findById(id).select('-__v');
-        console.log('id ', id);
         const book = await Book.getBook(id);
-        console.log('book ', book);
 
         if (!book) {
             res.status(STATUSES.NOT_FOUND);
