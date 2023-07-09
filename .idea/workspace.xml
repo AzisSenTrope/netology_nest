@@ -2,10 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6f4c72c-d651-43ca-9fc8-349ea5d1bb98" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/src/routes/books.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bookRepository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/container.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/bookModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/files/file2.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abstract.ts" beforeDir="false" afterPath="$PROJECT_DIR$/abstract.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/chats.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/users.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/endpoints/endpoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/endpoints/endpoints.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/file.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/file.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/files/1681646025064-file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/files/file1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/files/file1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/files/file2.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/books.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/books.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/const.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/const.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/delete-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/delete-file.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/books/chats.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/books/create.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/books/form.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/books/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/books/update.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/books/view.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/errors/404.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/port/layout-end.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/port/layout-start.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/port/menu.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/user/login.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/user/profile.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/user/register.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,21 +62,67 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/belykh-yar/Documents/Netology/netology_nest",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/belykh-yar/Documents/Netology/netology_nest/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.18.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/belykh-yar/Documents/Netology/netology_nest/dist/src/routes&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/belykh-yar/Documents/Netology/netology_nest/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dist/src/routes" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="copy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="copy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.copy" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -48,7 +133,12 @@
       <option name="presentableId" value="Default" />
       <updated>1685549225823</updated>
       <workItem from="1685549227146" duration="731000" />
-      <workItem from="1685642926200" duration="1370000" />
+      <workItem from="1685642926200" duration="2200000" />
+      <workItem from="1687021337204" duration="11000" />
+      <workItem from="1687022127601" duration="858000" />
+      <workItem from="1687028079237" duration="9511000" />
+      <workItem from="1687111857174" duration="4867000" />
+      <workItem from="1688831211409" duration="10588000" />
     </task>
     <servers />
   </component>

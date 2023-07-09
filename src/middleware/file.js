@@ -1,5 +1,4 @@
-const multer = require('multer')
-const {parse} = require("uuid");
+import multer from 'multer';
 
 const storage = multer.diskStorage({
     destination(req, file, cb){
@@ -10,4 +9,4 @@ const storage = multer.diskStorage({
     }
 })
 
-module.exports = multer({storage})
+export const fileMulter = multer({storage})

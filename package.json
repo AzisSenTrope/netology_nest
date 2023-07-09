@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-server": "node src/index.js"
+    "copy": "cp -r ./src ./dist",
+    "build": "tsc -p ./tsconfig.json",
+    "start": "node dist/src/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,16 +19,15 @@
   },
   "homepage": "https://github.com/AzisSenTrope/netology_express#readme",
   "dependencies": {
-    "ejs": "^3.1.6",
     "express": "^4.18.2",
-    "express-session": "^1.17.3",
+    "inversify": "^6.0.1",
+    "mongoose": "7.0.3",
     "multer": "^1.4.5-lts.1",
-    "passport": "^0.6.0",
-    "passport-local": "^1.0.0",
-    "uuid": "^9.0.0",
-    "socket.io": "4.6.1"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@types/node": "^20.3.1",
+    "reflect-metadata": "^0.1.13",
     "typescript": "^4.9.5"
   }
 }

@@ -1,170 +1,130 @@
-const express = require('express')
+import {BookRepository} from '../bookRepository'
+import {container} from "../container";
+import {ENDPOINTS} from '../endpoints/endpoints';
+import express from 'express';
+import {fileMulter} from '../middleware/file';
+import {TEST_RESPONSE} from '../utils/utils';
+import {dirname} from '../config';
+import {STATUSES} from '../utils/const';
+import {deleteFile} from '../utils/delete-file';
+
 const router = express.Router()
-const fileMulter = require('../middleware/file')
 
-const ENDPOINTS = require('../endpoints/endpoints');
-const {Book, STORE} = require('../utils/utils');
-const {dirname} = require('../../config');
-const {STATUSES} = require('../utils/const');
-const deleteFile = require('../utils/delete-file');
+const Book = container.get(BookRepository);
 
-router.get(ENDPOINTS.BOOK_DOWNLOAD, (req, res) => {
-    const {books} = STORE;
+router.get(ENDPOINTS.BOOK_DOWNLOAD, async (req, res) => {
     const {id} = req.params;
-    const book = books.find(el => el.id === id);
+    try {
+        // const book = await Book.findById(id).select('-__v');
+        console.log('id ', id);
+        const book = await Book.getBook(id);
+        console.log('book ', book);
 
-    if (!book) {
-        res.status(STATUSES.NOT_FOUND);
-        res.json('404 | страница не найдена');
-        return;
+        if (!book) {
+            res.status(STATUSES.NOT_FOUND);
+            res.json('404 | страница не найдена');
+            return;
+        }
+
+        res.download(dirname +  '/' + book.fileBook, book.fileName);
+    } catch (err) {
+        res.status(STATUSES.SERVER_ERROR);
+        res.json(err);
     }
+})
+
+router.post(ENDPOINTS.LOGIN, (req, res) => {
+    res.json(TEST_RESPONSE);
+})
+
+router.get(ENDPOINTS.BOOKS, async (req, res) => {
+    try {
+        console.log({req});
+        const books = await Book.getBooks();
+
+        res.json(books);
+    } catch (err) {
+        res.status(STATUSES.SERVER_ERROR);
+        res.json(err);
+    }
+
+})
+
+router.get(ENDPOINTS.BOOK_ID, async (req, res) => {
+    const {id} = req.params;
 
     try {
-        res.download(dirname +  '/' + book.fileBook, book.fileName);
-    } catch (error) {
+        const book = await Book.getBook(id);
+        res.json(book);
+    } catch (err) {
         res.status(STATUSES.SERVER_ERROR);
-        res.json(error);
+        res.json(err);
     }
 })
 
-router.get(ENDPOINTS.BOOKS, (req, res) => {
-    const {books} = STORE;
-    res.render("books/index", {
-        title: "Books",
-        books: books,
-        isAuthenticated: req.isAuthenticated(),
-    });
-});
-
-router.get(ENDPOINTS.BOOK_ID, (req, res) => {
-    const {books} = STORE;
-    const {id} = req.params;
-    const idx = books.findIndex(el => el.id === id);
-
-    if( idx !== -1) {
-        res.render("books/view", {
-            title: "Books | view",
-            books: books[idx],
-            isAuthenticated: req.isAuthenticated(),
-            user: req.user || {},
-        });
-        return;
-    }
-
-    res.status(STATUSES.NOT_FOUND);
-    res.json('404 | страница не найдена');
-    res.redirect('/404');
-
-})
-
-router.get(ENDPOINTS.BOOK_UPDATE, (req, res) => {
-    const {books} = STORE;
-    const {id} = req.params;
-    const idx = books.findIndex(el => el.id === id);
-
-    if (idx === -1) {
-        res.redirect('/404');
-    }
-
-    res.render("books/update", {
-        title: "BOOKS | view",
-        books: books[idx],
-        isAuthenticated: req.isAuthenticated(),
-    });
-});
-
-router.post(ENDPOINTS.BOOK_UPDATE, fileMulter.single('fileBook'), (req, res) => {
-    const {books} = STORE;
-    const {id} = req.params;
-    const idx = books.findIndex(el => el.id === id);
-
-    if (idx !== -1){
-        const {file} = req;
-        if (file) {
-            try {
-                deleteFile(dirname + '/' + books[idx].fileBook);
-            } catch (err) {
-                res.status(STATUSES.SERVER_ERROR);
-                res.json(err);
-                return;
-            }
-        }
-
-        if (books[idx].fileBook) {
-            books[idx] = {
-                ...books[idx],
-                ...req.body,
-            }
-        } else {
-            const fileBook = file.path;
-            const fileName = file.originalname;
-            books[idx] = {
-                ...books[idx],
-                ...req.body,
-                fileName,
-                fileBook,
-            }
-        }
-
-        res.redirect(`../../books/${id}`);
-        return;
-    }
-
-    res.redirect('/404');
-})
-
-router.get(ENDPOINTS.BOOK_CREATE, (req, res) => {
-    res.render("books/create", {
-        title: "BOOKS | create",
-        books: {},
-        isAuthenticated: req.isAuthenticated(),
-    });
-});
-
-router.post(ENDPOINTS.BOOK_CREATE, fileMulter.single('fileBook'), (req, res) => {
-    const {books} = STORE;
+router.post(ENDPOINTS.BOOKS, fileMulter.single('fileBook'), async (req, res) => {
     const {file} = req
 
     if (file) {
-        const fileBook = file.path
-        const fileName = file.originalname;
+        const fileBook = file.path;
 
-        const newBook = new Book({...req.body, fileBook, fileName});
-        books.push(newBook);
-
-        res.status(STATUSES.CREATED);
-        res.redirect(`books/${newBook.id}`);
-        return;
-    }
-
-    res.status(STATUSES.INVALID);
-    res.send({error: 'Invalid data'});
-})
-
-router.post(ENDPOINTS.BOOK_DELETE, (req, res) => {
-    const {books} = STORE;
-    const {id} = req.params;
-    const idx = books.findIndex(el => el.id === id);
-
-    if (idx !== -1){
-        if (books[idx].fileBook) {
-            try {
-                deleteFile(dirname + '/' + books[idx].fileBook);
-            } catch (err) {
-                res.status(STATUSES.SERVER_ERROR);
-                res.json(err);
-                return;
-            }
+        try {
+            const newBook = await Book.createBook({...req.body, fileBook});
+            res.status(STATUSES.CREATED);
+            res.json(newBook)
+        } catch (err) {
+            res.status(STATUSES.SERVER_ERROR);
+            res.json(err);
         }
-
-        books.splice(idx, 1)
-        res.redirect(ENDPOINTS.BOOKS);
-        return;
     }
-
-    res.status(STATUSES.NOT_FOUND)
-    res.redirect('/404');
 })
 
+router.put(ENDPOINTS.BOOK_ID, fileMulter.single('fileBook'), async (req, res) => {
+    const {id} = req.params;
 
-module.exports = router;
+    try {
+        const book = await Book.getBook(id);
+        if (book) {
+            const {file} = req;
+            if (file) {
+                deleteFile(dirname + '/' + book.fileBook);
+                const fileBook = file.path;
+                const fileName = file.originalname;
+                await Book.updateBook(id, {
+                    ...req.body,
+                    fileName,
+                    fileBook,
+                });
+            } else {
+                await Book.updateBook(id, {
+                    ...req.body,
+                });
+            }
+
+            res.redirect(`/api/books/${id}`);
+        }
+    } catch (err) {
+        res.status(STATUSES.SERVER_ERROR);
+        res.json(err);
+    }
+})
+
+router.delete(ENDPOINTS.BOOK_ID, async (req, res) => {
+    const {id} = req.params
+
+    try {
+        const book = await Book.getBook(id);
+
+        if (book) {
+            await Book.deleteBook({_id: id});
+
+            deleteFile(dirname + '/' + book.fileBook);
+            res.json(true);
+        }
+    } catch (err) {
+        res.status(STATUSES.SERVER_ERROR);
+        res.json(err);
+    }
+})
+
+export {router}
