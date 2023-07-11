@@ -3,9 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="b6f4c72c-d651-43ca-9fc8-349ea5d1bb98" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abstract.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/abstract.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/config.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/config.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/middleware/file.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/middleware/file.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/model/bookModel.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/model/bookModel.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/routes/books.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/routes/books.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/routes/books.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/routes/books.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/server/server.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/server/server.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/utils/const.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/utils/const.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/utils/delete-file.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/utils/delete-file.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/utils/utils.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/utils/utils.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/bookItem.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/bookRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/container.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/file.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/file.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/bookModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bookModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/books.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/books.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/const.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/const.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/delete-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/delete-file.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +65,11 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/infrastructure" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -79,8 +102,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.copy" />
       </list>
     </recent_temporary>
