@@ -5,7 +5,7 @@ import express from 'express';
 import {router as bookRouter} from '../routes/books';
 import {ENDPOINTS} from '../endpoints/endpoints';
 
-export async function runServer(port, urlDB) {
+export async function runServer(port: string | number, urlDB: string) {
     try {
         await connect(urlDB);
         await initBooks();

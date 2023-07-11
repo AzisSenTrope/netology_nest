@@ -13,8 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
-const bookRepository_1 = require("../bookRepository");
-const container_1 = require("../container");
+const bookRepository_1 = require("../infrastructure/bookRepository");
+const container_1 = require("../infrastructure/container");
 const endpoints_1 = require("../endpoints/endpoints");
 const express_1 = __importDefault(require("express"));
 const file_1 = require("../middleware/file");
@@ -28,9 +28,7 @@ const Book = container_1.container.get(bookRepository_1.BookRepository);
 router.get(endpoints_1.ENDPOINTS.BOOK_DOWNLOAD, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     try {
-        console.log('id ', id);
         const book = yield Book.getBook(id);
-        console.log('book ', book);
         if (!book) {
             res.status(const_1.STATUSES.NOT_FOUND);
             res.json('404 | страница не найдена');
@@ -112,7 +110,7 @@ router.delete(endpoints_1.ENDPOINTS.BOOK_ID, (req, res) => __awaiter(void 0, voi
     try {
         const book = yield Book.getBook(id);
         if (book) {
-            yield Book.deleteBook({ _id: id });
+            yield Book.deleteBook(id);
             (0, delete_file_1.deleteFile)(config_1.dirname + '/' + book.fileBook);
             res.json(true);
         }

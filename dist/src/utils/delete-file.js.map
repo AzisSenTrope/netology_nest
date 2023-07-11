@@ -1,1 +1,1 @@
-{"version":3,"file":"delete-file.js","sourceRoot":"","sources":["../../../src/utils/delete-file.js"],"names":[],"mappings":";;;;;;AAAA,4CAAmB;AAGnB,SAAgB,UAAU,CAAC,IAAI;IAC3B,YAAE,CAAC,UAAU,CAAC,IAAI,CAAC,CAAC;AACxB,CAAC;AAFD,gCAEC"}
+{"version":3,"file":"delete-file.js","sourceRoot":"","sources":["../../../src/utils/delete-file.ts"],"names":[],"mappings":";;;;;;AAAA,4CAAmB;AAGnB,SAAgB,UAAU,CAAC,IAAY;IACnC,YAAE,CAAC,UAAU,CAAC,IAAI,CAAC,CAAC;AACxB,CAAC;AAFD,gCAEC"}

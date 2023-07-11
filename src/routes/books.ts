@@ -1,5 +1,5 @@
-import {BookRepository} from '../bookRepository'
-import {container} from "../container";
+import {BookRepository} from '../infrastructure/bookRepository'
+import {container} from "../infrastructure/container";
 import {ENDPOINTS} from '../endpoints/endpoints';
 import express from 'express';
 import {fileMulter} from '../middleware/file';
@@ -36,7 +36,6 @@ router.post(ENDPOINTS.LOGIN, (req, res) => {
 
 router.get(ENDPOINTS.BOOKS, async (req, res) => {
     try {
-        console.log({req});
         const books = await Book.getBooks();
 
         res.json(books);
@@ -60,7 +59,7 @@ router.get(ENDPOINTS.BOOK_ID, async (req, res) => {
 })
 
 router.post(ENDPOINTS.BOOKS, fileMulter.single('fileBook'), async (req, res) => {
-    const {file} = req
+    const {file} = req;
 
     if (file) {
         const fileBook = file.path;
@@ -113,7 +112,7 @@ router.delete(ENDPOINTS.BOOK_ID, async (req, res) => {
         const book = await Book.getBook(id);
 
         if (book) {
-            await Book.deleteBook({_id: id});
+            await Book.deleteBook(id);
 
             deleteFile(dirname + '/' + book.fileBook);
             res.json(true);

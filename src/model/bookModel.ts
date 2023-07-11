@@ -1,6 +1,4 @@
-// const {Schema, model} = require('mongoose')
-
-import { Schema, model } from 'mongoose';
+import {Schema, model, Document} from 'mongoose';
 
 const BookScheme = new Schema({
     id: String,
@@ -22,6 +20,6 @@ const BookScheme = new Schema({
     }
 });
 
-export const BookModel = model('Book', BookScheme);
+export const BookModel = model<BookItem & Document>('Book', BookScheme);
 
 // module.exports = model('BookModel', BookScheme);
